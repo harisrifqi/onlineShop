@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Add to Cart</title>
+    <style>
+        /* Simple styling */
+        .product {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            display: inline-block;
+            width: 200px;
+        }
+        .cart {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Shopping Cart</h1>
+
+    <!-- Example Products -->
+    <div class="product">
+        <h3>Product 1</h3>
+        <p>Price: $10</p>
+        <button class="add-to-cart" data-product="Product 1" data-price="10">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <h3>Product 2</h3>
+        <p>Price: $20</p>
+        <button class="add-to-cart" data-product="Product 2" data-price="20">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <h3>Product 3</h3>
+        <p>Price: $30</p>
+        <button class="add-to-cart" data-product="Product 3" data-price="30">Add to Cart</button>
+    </div>
+
+    <!-- Cart Section -->
+    <div class="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="total-price">0</span></p>
+    </div>
+
+    <script>
+        let cart = [];
+        let totalPrice = 0;
+
+        // Get all 'Add to Cart' buttons
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        // Add event listener to each button
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const productName = this.getAttribute('data-product');
+                const productPrice = parseFloat(this.getAttribute('data-price'));
+
+                // Add product to cart array
+                cart.push({ name: productName, price: productPrice });
+
+                // Update the cart UI
+                updateCart();
+            });
+        });
+
+        // Function to update the cart UI
+        function updateCart() {
+            const cartItemsList = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+
+            // Clear the current cart items
+            cartItemsList.innerHTML = '';
+
+            // Add cart items to the list
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price}`;
+                cartItemsList.appendChild(li);
+            });
+
+            // Update the total price
+            totalPrice = cart.reduce((total, item) => total + item.price, 0);
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>

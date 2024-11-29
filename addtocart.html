@@ -1,0 +1,187 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR CART PAGE</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .full-page
+    {
+        height: 100%;
+        width: 100%;
+        background-color: darkorange;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+    }
+    ::selection{
+        color: #000;
+        background: #fff;
+    }
+    .fullContainer {
+        width: 100%;
+    }
+    .container{
+        width: 1340px;
+        margin: auto;
+    }
+    header{
+        width: 100%;
+        background-color: black;
+        position: fixed;
+        z-index: 2;
+        padding: 10px 0;
+    }
+    header .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    header .container .logo{
+        text-decoration: none;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    header .container .logo img{
+        height: 100%;
+    }
+    header vav ul{
+        list-style-type: none;
+    }
+    header nav ul li{
+        display: inline-block
+    }
+    header nav ul li a{
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    header nav ul li a:hover{
+        background: darkorange;
+        color: black;
+    }
+
+    .class{
+        max-width: 400px;
+        width: 100%;
+        margin: 120px;
+        background-color: #fff;
+        padding: 25px 30px;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+    .class .title{
+        font-size: 25px;
+        font-weight: 500;
+        position: relative;
+    }
+    
+    .button{
+        height: 45px;
+        margin: 35px 0;
+    }
+    .button input{
+        height: 100%;
+        width: 45%; 
+        border-radius: 5px;
+        border: none;
+        color: #000;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: darkorange;
+    }
+</style>
+<body>
+    <div class="full-page">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <p>MY COMPUTER ACCESSORIES SHOP</p> 
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="home.html">HOME</a></li>
+                        <li><a href="products.html">PRODUCTS</a></li>
+                        <li><a href="addtocart.html">YOUR CARTS</a></li>
+                        <li><a href="contacts.html">CONTACTS</a></li>
+                        <li><a href="mainpage.html">LOG OUT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <center>
+            <div class="class"> 
+                <div class="title">YOUR SHOPPING CART</div> 
+                <br><br>                       
+                <div id="cartItems">
+                    <!-- Cart items will be displayed here -->
+                </div>
+                <div id="total">
+                    <!-- Total price will be displayed here -->
+                </div>
+                <br>
+                <div class="button">
+                    <input type="submit" onclick="clearCart()" value="CLEAR CART">
+                    <input type="submit" onclick="goToPayment()" value="PROCEED TO PAYMENT">
+                </div>                               
+            </div>
+        </center>
+    </div>
+    <script>
+        // Display the cart items
+        function displayCart() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const totalContainer = document.getElementById('total');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = 'Your cart is empty.';
+                totalContainer.innerHTML = '';
+            } else {
+                let total = 0;
+                cartItemsContainer.innerHTML = '';
+                
+                cart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.textContent = `${item.name} - RM${item.price} x ${item.quantity}`;
+                    cartItemsContainer.appendChild(itemElement);
+                    total += item.price * item.quantity;
+                });
+
+                totalContainer.innerHTML = `Total: RM${total}`;
+            }
+        }
+
+        // Clear the cart
+        function clearCart() {
+            localStorage.removeItem('cart');
+            displayCart();
+        }
+
+        // Direct to payment page
+        function goToPayment() {
+            if (JSON.parse(localStorage.getItem('cart')).length === 0) {
+                alert("Your cart is empty. Please add items to the cart before proceeding.");
+            } else {
+                window.location.href = "payment.html";  // Direct to payment page
+            }
+        }
+
+        // Initialize cart display
+        displayCart();
+    </script>
+</body>
+</html>

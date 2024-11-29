@@ -1,0 +1,251 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUCTS PAGE</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .full-page
+    {
+        height: 100%;
+        width: 100%;
+        background-color: darkorange;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+    }
+    ::selection{
+        color: #000;
+        background: #fff;
+    }
+    .fullContainer {
+        width: 100%;
+    }
+    .container{
+        width: 1340px;
+        margin: auto;
+    }
+    header{
+        width: 100%;
+        background-color: black;
+        position: fixed;
+        z-index: 2;
+        padding: 10px 0;
+    }
+    header .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    header .container .logo{
+        text-decoration: none;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    header .container .logo img{
+        height: 100%;
+    }
+    header vav ul{
+        list-style-type: none;
+    }
+    header nav ul li{
+        display: inline-block
+    }
+    header nav ul li a{
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    header nav ul li a:hover{
+        background: darkorange;
+        color: black;
+    }
+
+    #services-container {
+        margin: 34px;
+        display: flex;
+    }
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: white;
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+    }
+    .price {
+        color: #000;
+        font-size: 20px;
+    }
+    .card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+</style>
+<body style="background-color: darkorange;">
+    <div class="full-page">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <p>MY COMPUTER ACCESSORIES SHOP</p> 
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="home.html">HOME</a></li>
+                        <li><a href="products.html">PRODUCTS</a></li>
+                        <li><a href="addtocart.html">YOUR CARTS</a></li>
+                        <li><a href="contacts.html">CONTACTS</a></li>
+                        <li><a href="mainpage.html">LOG OUT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <br>
+        <div id="services-container">
+            <div class="card product">   
+                <img src="monitor.jpeg" width="250" height="200" alt="">  
+                <p style="color:black;font-weight:bold;font-size: 20px">MONITOR</p>
+                <p class="price" style="font-family: sans-serif">RM699.00</p>
+                <button onclick="addToCart('MONITOR', 699)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="keyboard.png" width="250" height="200" alt="">  
+                <p style="color:black;font-weight:bold;font-size: 20px">KEYBOARDS</p>
+                <p class="price" style="font-family: sans-serif">RM259.00</p>
+                <button onclick="addToCart('KEYBOARDS', 259)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="printer.png" width="250" height="200" alt="">   
+                <p style="color:black;font-weight:bold;font-size: 20px">PRINTER</p>
+                <p class="price" style="font-family: sans-serif">RM559.00 </p>
+                <button onclick="addToCart('PRINTER', 559)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="hdmi cable.jpeg" width="250" height="200" alt="">   
+                <p style="color:black;font-weight:bold;font-size: 20px">HDMI CABLES</p>
+                <p class="price" style="font-family: sans-serif">RM7.00 </p>
+                <button onclick="addToCart('HDMI CABLES', 7)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div id="services-container">
+            <div class="card product">   
+                <img src="webcam.jpg" width="250" height="200" alt="">  
+                <p style="color:black;font-weight:bold;font-size: 20px">WEBCAM</p>
+                <p class="price" style="font-family: sans-serif">RM199.00</p>
+                <button onclick="addToCart('WEBCAM', 199)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="hard drive.jpeg" width="250" height="200" alt="">  
+                <p style="color:black;font-weight:bold;font-size: 20px">HARD DRIVE</p>
+                <p class="price" style="font-family: sans-serif">RM189.00</p>
+                <button onclick="addToCart('HARD DRIVE', 189)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="speakers.jpg" width="250" height="200" alt="">   
+                <p style="color:black;font-weight:bold;font-size: 20px">SPEAKERS</p>
+                <p class="price" style="font-family: sans-serif">RM179.00 </p>
+                <button onclick="addToCart('SPEAKERS', 179)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="power supply.jpg" width="250" height="200" alt="">  
+                <p style="color:black;font-weight:bold;font-size: 20px">POWER SUPPLY</p>
+                <p class="price" style="font-family: sans-serif">RM249.00 </p>
+                <button onclick="addToCart('POWER SUPPLY', 249)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div id="services-container">
+            <div class="card product">   
+                <img src="microphone.jpg" width="250" height="200" alt="">  
+                <p style="color:black;font-weight:bold;font-size: 20px">MICROPHONE</p>
+                <p class="price" style="font-family: sans-serif">RM165.00 </p>
+                <button onclick="addToCart('MICROPHONE', 165)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="headset.jpg" width="250" height="200" alt="">  
+                <p style="color:black;font-weight:bold;font-size: 20px">HEADSET</p>
+                <p class="price" style="font-family: sans-serif">RM119.00</p>
+                <button onclick="addToCart('HEADSET', 119)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="mouse.jpg" width="250" height="200" alt="">   
+                <p style="color:black;font-weight:bold;font-size: 20px">MOUSE</p>
+                <p class="price" style="font-family: sans-serif">RM29.00</p>
+                <button onclick="addToCart('MOUSE', 29)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="scanner.jpg" width="250" height="200" alt="">  
+                <p style="color:black;font-weight:bold;font-size: 20px">SCANNER</p>
+                <p class="price" style="font-family: sans-serif">RM299.00 </p>
+                <button onclick="addToCart('SCANNER', 299)">Add to Cart</button>
+            </div>
+        </div>
+        <div id="services-container">
+            <div class="card product">   
+                <img src="ram.jpeg" width="250" height="200" alt=""> 
+                <p style="color:black;font-weight:bold;font-size: 15px">RANDOM ACCESS MEMORY (RAM)</p>
+                <p class="price" style="font-family: sans-serif">RM179.00</p>
+                <button onclick="addToCart('RANDOM ACCESS MEMORY (RAM)', 179)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="usb hubs.jpg" width="250" height="200" alt="">   
+                <p style="color:black;font-weight:bold;font-size: 20px">USB HUBS</p>
+                <p class="price" style="font-family: sans-serif">RM6.00 </p>
+                <button onclick="addToCart('USB HUBS', 6)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="graphic cards.jpg" width="250" height="200" alt="">  
+                <p style="color:black;font-weight:bold;font-size: 20px">GRAPHIC CARDS</p>
+                <p class="price" style="font-family: sans-serif">RM819.00</p>
+                <button onclick="addToCart('GRAPHIC CARDS', 819)">Add to Cart</button>
+            </div>
+            <div class="card product">   
+                <img src="motherboard.png" width="250" height="200" alt="">   
+                <p style="color:black;font-weight:bold;font-size: 20px">MOTHERBOARD</p>
+                <p class="price" style="font-family: sans-serif">RM339.00</p>
+                <button onclick="addToCart('MOTHERBOARD', 339)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    // Initialize the cart
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Function to add items to the cart
+    function addToCart(productName, price) {
+    const product = { name: productName, price: price };
+    
+    // Check if the product is already in the cart
+    const existingProduct = cart.find(item => item.name === productName);
+    if (existingProduct) {
+        existingProduct.quantity += 1;  // Increase quantity
+    } else {
+        product.quantity = 1;  // Add new product
+        cart.push(product);
+    }
+    
+    // Save updated cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${productName} has been added to your cart.`);
+    }
+    </script>
+</body>
+</html>

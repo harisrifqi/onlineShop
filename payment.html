@@ -1,0 +1,216 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYMENT PAGE</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .full-page
+    {
+        height: 100%;
+        width: 100%;
+        background-color: darkorange;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+    }
+    ::selection{
+        color: #000;
+        background: #fff;
+    }
+    .fullContainer {
+        width: 100%;
+    }
+    .container{
+        width: 1340px;
+        margin: auto;
+    }
+    header{
+        width: 100%;
+        background-color: black;
+        position: fixed;
+        z-index: 2;
+        padding: 10px 0;
+    }
+    header .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    header .container .logo{
+        text-decoration: none;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    header .container .logo img{
+        height: 100%;
+    }
+    header vav ul{
+        list-style-type: none;
+    }
+    header nav ul li{
+        display: inline-block
+    }
+    header nav ul li a{
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    header nav ul li a:hover{
+        background: darkorange;
+        color: black;
+    }
+
+    .class{
+        max-width: 700px;
+        width: 100%;
+        margin: 120px;
+        background-color: #fff;
+        padding: 25px 30px;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+    .class .title{
+        font-size: 25px;
+        font-weight: 500;
+        position: relative;
+    }
+    .class .title::before{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 30px;
+        border-radius: 5px;
+    }
+    .content form .user-details{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 10px 0 12px 0;
+    }
+    form .user-details .input-box{
+        margin-bottom: 15px;
+        width: calc(100% / 2 - 20px);
+    }
+    form .input-box span.details{
+        text-align: left;
+        display: block;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+    .user-details .input-box input{
+        height: 45px;
+        width: 100%;
+        outline: none;
+        font-size: 16px;
+        border-radius: 5px;
+        padding-left: 15px;
+        border: 1px solid #ccc;
+        border-bottom-width: 2px;
+        transition: all 0.3s ease;
+    }
+    .user-details .input-box input:focus,
+    .user-details .input-box input:valid{
+        border-color: darkorange;
+    }
+    form .button{
+        height: 45px;
+        margin: 35px 0;
+    }
+    form .button input{
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+        color: #000;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: darkorange;
+    }
+</style>
+<body>
+    <div class="full-page">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <p>MY COMPUTER ACCESSORIES SHOP</p> 
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="home.html">HOME</a></li>
+                        <li><a href="products.html">PRODUCTS</a></li>
+                        <li><a href="addtocart.html">YOUR CARTS</a></li>
+                        <li><a href="contacts.html">CONTACTS</a></li>
+                        <li><a href="mainpage.html">LOG OUT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <center>
+            <div class="class"> 
+                <div class="title">PAYMENT INFORMATION</div> <br><br>
+                <div class="content">
+                    <form id="paymentForm">
+                        <div class="user-details">
+                            <div class="input-box">
+                                <span class="details">FULL NAME</span>
+                                <input type="text" placeholder="Enter Your Full Name" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">ADDRESS</span>
+                                <input type="text" placeholder="Enter Your Shipping Address" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">NAME ON CARD</span>
+                                <input type="text" placeholder="Enter Your Name on Card" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">CREDIT CARD NUMBER</span>
+                                <input type="text" placeholder="Enter Your Credit Card Number" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">EXPIRY DATE (MM/YY)</span>
+                                <input type="month" placeholder="Enter Your Expiry Date" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">CVV</span>
+                                <input type="text" placeholder="Enter Your CVV" required>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <input type="submit" name="submit" value="SUBMIT PAYMENT">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </center>
+    </div>
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form from submitting the normal way
+            
+            // Simulate successful payment
+            alert('Payment successful!!! Your order is being processed. Please give your feedback.');
+            
+            // Clear cart after payment
+            localStorage.removeItem('cart');
+            window.location.href = "contacts.html";  // Direct to the contacts page
+        });
+    </script>
+</body>
+</html>
